@@ -4,12 +4,13 @@ function KnapsackSolver(arr){
 }
 
 KnapsackSolver.prototype.waysToObtain = function(target){
-  this.overlay = Array.apply(null, Array(target + 1)).map(function(){
+  that = this;
+  that.overlay = Array.apply(null, Array(target + 1)).map(function(){
     return 0;
   })
-  this.overlay[0] = 1;
-  this.populateOverlay();
-  return this.overlay[target];
+  that.overlay[0] = 1;
+  that.populateOverlay();
+  return that.overlay[target];
 }
 
 KnapsackSolver.prototype.populateOverlay = function(){
