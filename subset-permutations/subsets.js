@@ -1,5 +1,4 @@
 (function(){
-
   if(typeof Permutation === "undefined"){
     Permutation = {};
   }
@@ -20,5 +19,4 @@
   }
 
   // console.log(Permutation.subsets([1,2,3,4,5,6]));
-
 })();

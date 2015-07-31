@@ -1,31 +1,36 @@
-function KnapsackSolver(arr){
-  this.adders = arr;
-  this.overlay = [];
-}
+(function(){
+  if(typeof Dynamic === "undefined"){
+    Dynamic = {};
+  }
 
-KnapsackSolver.prototype.waysToObtain = function(target){
-  that = this;
-  that.overlay = Array.apply(null, Array(target + 1)).map(function(){
-    return 0;
-  })
-  that.overlay[0] = 1;
-  that.populateOverlay();
-  return that.overlay[target];
-}
+  var KnapsackSolver = Dynamic.KnapsackSolver = function(arr){
+    this.adders = arr;
+    this.overlay = [];
+  }
 
-KnapsackSolver.prototype.populateOverlay = function(){
-  that = this;
-  that.adders.forEach(function(adder){
-    previousOverlay = that.overlay.slice();
-    previousOverlay.forEach(function(count, index){
-      if((count > 0) && (index + adder <= previousOverlay.length - 1)){
-        that.overlay[index + adder] += count;
-      }
+  KnapsackSolver.prototype.waysToObtain = function(target){
+    var thisSolver = this;
+    thisSolver.overlay = Array.apply(null, Array(target + 1)).map(function(){
+      return 0;
     })
-  })
-}
+    thisSolver.overlay[0] = 1;
+    thisSolver.populateOverlay();
+    return thisSolver.overlay[target];
+  }
 
-module.exports = knapsackSolver();
+  KnapsackSolver.prototype.populateOverlay = function(){
+    var thisSolver = this;
+    thisSolver.adders.forEach(function(adder){
+      previousOverlay = thisSolver.overlay.slice();
+      previousOverlay.forEach(function(count, index){
+        if((count > 0) && (index + adder <= previousOverlay.length - 1)){
+          thisSolver.overlay[index + adder] += count;
+        }
+      })
+    })
+  }
+})();
+
 
 
 
