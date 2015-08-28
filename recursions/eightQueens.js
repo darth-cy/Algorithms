@@ -179,7 +179,7 @@
     return queenCoords;
   };
 
-  var newQueenSolver = new QueenSolver(8, 2);
+  var newQueenSolver = new QueenSolver(8, 3);
   newQueenSolver.placeQueen();
   newQueenSolver.render();
 })();
