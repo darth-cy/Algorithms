@@ -1,6 +1,6 @@
 (function(){
   if(typeof Recursion === "undefined"){
-    Recursion = {};
+    window.Recursion = {};
   }
 
   var makeChange = Recursion.makeChange = function(target, denominations){
@@ -28,5 +28,5 @@
     }
   }
 
-  console.log(makeChange(47, [8, 7, 3, 1]));
+  console.log(makeChange(28, [11, 7, 3, 1]));
 })();

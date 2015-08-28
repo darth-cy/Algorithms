@@ -4,6 +4,11 @@
 + KnapSack problem algorithms.
 + Rectangular sum problem algorithms.
 
+### Bit Manipulations ###
++ Test power of two.
++ In-place swap.
++ XOR element finding.
+
 ### Sorting Algorithms ###
 + Quicksort.
 + Mergesort.
@@ -15,3 +20,4 @@
 
 ### Recursions ###
 + Makechange problem algorithm.
++ Eight Queen problem.
