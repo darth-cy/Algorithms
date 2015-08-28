@@ -39,10 +39,6 @@
     return grossUnavailable;
   };
 
-  CoordinateUniq = function(cordinates){
-    return cordinates;
-  };
-
   QueenSolver.prototype.available = function(){
     var allcoordstring = this.allCoords.map(function(coord){
       return coord.join("-");
@@ -68,8 +64,6 @@
   };
 
   QueenSolver.prototype.placeQueen = function(){
-    this.render();
-
     var availables = this.available();
     if(availables.length < 1){ return false; }
 
@@ -106,7 +100,7 @@
         }
       }
     }
-    return CoordinateUniq(unavailableCoords);
+    return unavailableCoords;
   };
 
   QueenSolver.prototype.checkCol = function(colNum){
@@ -127,7 +121,7 @@
         }
       }
     }
-    return CoordinateUniq(unavailableCoords);
+    return unavailableCoords;
   };
 
   QueenSolver.prototype.upRight = function(row, col){
