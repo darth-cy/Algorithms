@@ -1,6 +1,6 @@
 (function(){
-  if(typeof Recursion === undefined){
-    window.Recursion = {};
+  if(typeof Recursion === "undefined"){
+    Recursion = {};
   }
 
   QueenSolver = Recursion.QueenSolver = function(gridLength, numQueens){
@@ -9,38 +9,33 @@
     this.numQueens = numQueens;
     this.rows = Array.apply(null, Array(this.gridLength)).map(function(){
       return Array.apply(null, Array(this.gridLength)).map(function(){
-            return "_";
+        return "_";
       })
-    })
+    }.bind(this))
 
     this.allCoords = [];
 
-    this.fillCoords();
-  };
-
-  QueenSolve.fillCoords = function(){
     for(var i = 0; i < this.gridLength; i++){
       for(var j = 0; j < this.gridLength; j++){
         this.allCoords.push([i, j]);
       }
     }
-
-    return 0;
   };
 
-  QueenSolve.render = function(){
+
+  QueenSolver.prototype.render = function(){
     this.rows.forEach(function(row){
       printRow = [];
       row.forEach(function(space){
         printRow.push(space);
       })
-      console.log(printRow.join)
+      console.log(printRow.join())
     })
 
     return 0;
   };
 
-  QueenSolver.allUnavailable = function(){
+  QueenSolver.prototype.allUnavailable = function(){
     grossUnavailable = this.allUnavailableDiags().concat(this.unavailableRows()).concat(this.unavailableCols());
     return CoordinateUniq(grossUnavailable);
   };
@@ -57,14 +52,16 @@
     return result;
   };
 
-  QueenSolve.available = function(){
+  QueenSolver.prototype.available = function(){
     var diff = this.allCoords.filter(function(coord){
       return this.allUnavailable().indexOf(coord) < 0
-    });
+    }.bind(this));
     return diff;
   };
 
-  QueenSolve.placeQueen = function(){
+  QueenSolver.prototype.placeQueen = function(){
+    this.render();
+
     var availables = this.available();
     if(availables.length < 1){ return false; }
 
@@ -76,22 +73,23 @@
       return true
     }
 
-    availables.forEach(function(coord){
+    for(var idx = 0; idx < availables.length; idx++){
+      coord = availables[idx];
       this.rows[coord[0]][coord[1]] = "Q"
       if(!this.placeQueen()){
         this.rows[coord[0]][coord[1]] = "_"
-        return 0;
       }else{
-        return true
+        return true;
       }
-    })
+    }
+    return false;
   };
 
-  QueenSolve.checkRow = function(rowNum){
+  QueenSolver.prototype.checkRow = function(rowNum){
     return this.rows[rowNum].indexOf("Q") !== -1;
   };
 
-  QueenSolve.unavailableRows = function(){
+  QueenSolver.prototype.unavailableRows = function(){
     var unavailableCoords = [];
     for(var rowIdx = 0; rowIdx < this.gridLength; rowIdx++){
       if(this.checkRow(rowIdx)){
@@ -103,7 +101,7 @@
     return CoordinateUniq(unavailableCoords);
   };
 
-  QueenSolve.checkCol = function(colNum){
+  QueenSolver.prototype.checkCol = function(colNum){
     for(var rowIdx = 0; rowIdx < this.gridLength; rowIdx++){
       if(this.rows[rowIdx][colNum] === "Q"){
         return true;
@@ -112,7 +110,7 @@
     return false;
   };
 
-  QueenSolve.unavailableCols = function(){
+  QueenSolver.prototype.unavailableCols = function(){
     var unavailableCoords = [];
     for(var colIdx = 0; colIdx < this.gridLength; colIdx++){
       if(this.checkCol(colIdx)){
@@ -124,7 +122,7 @@
     return CoordinateUniq(unavailableCoords);
   };
 
-  QueenSolve.upRight = function(row, col){
+  QueenSolver.prototype.upRight = function(row, col){
     var diag = [];
     while((row - 1) > 0 && (col + 1) < this.gridLength){
       diag.push([row -= 1, col += 1]);
@@ -132,7 +130,7 @@
     return diag;
   };
 
-  QueenSolve.upLeft = function(row, col){
+  QueenSolver.prototype.upLeft = function(row, col){
     var diag = [];
     while((row - 1) > 0 && (col - 1) > 0){
       diag.push([row -= 1, col -= 1]);
@@ -140,7 +138,7 @@
     return diag;
   };
 
-  QueenSolve.downLeft = function(row, col){
+  QueenSolver.prototype.downLeft = function(row, col){
     var diag = [];
     while((row + 1) < this.gridLength && (col - 1) > 0){
       diag.push([row += 1, col -= 1]);
@@ -148,36 +146,40 @@
     return diag;
   };
 
-  QueenSolve.downRight = function(row, col){
+  QueenSolver.prototype.downRight = function(row, col){
     var diag = [];
-    while((row + 1 < this.gridLength && (col + 1) < this.gridLength){
+    while((row + 1) < this.gridLength && (col + 1) < this.gridLength){
       diag.push([row += 1, col += 1]);
     }
     return diag;
   };
 
-  QueenSolve.allUnavailableDiags = function(){
+  QueenSolver.prototype.allUnavailableDiags = function(){
     var queenCoords = this.findAllQueens();
     var allDiags = [];
 
     queenCoords.forEach(function(coord){
       allDiags = allDiags.concat(this.unavailableDiags(coord[0], coord[1]));
-    })
+    }.bind(this))
 
     return CoordinateUniq(allDiags);
   };
 
-  QueenSolve.findAllQueens = function(){
+  QueenSolver.prototype.unavailableDiags = function(row, col){
+    var unavailables = this.upRight(row, col).concat(this.downRight(row, col)).concat(this.downLeft(row, col)).concat(this.upLeft(row, col));
+  };
+
+  QueenSolver.prototype.findAllQueens = function(){
     var queenCoords = [];
     this.allCoords.forEach(function(coord){
       if(this.rows[coord[0]][coord[1]] === "Q"){
         queenCoords.push(coord);
       }
-    })
+    }.bind(this))
     return queenCoords;
   };
 
-  QueenSolve.unavailableDiags = function(row, col){
-    var unavailables = this.upRight(row, col).concat(this.downRight(row, col)).concat(this.downLeft(row, col)).concat(this.upLeft(row, col));
-  };
+  var newQueenSolver = new QueenSolver(8, 2);
+  newQueenSolver.placeQueen();
+  newQueenSolver.render();
 })();
