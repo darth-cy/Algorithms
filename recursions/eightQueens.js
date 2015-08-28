@@ -22,7 +22,6 @@
     }
   };
 
-
   QueenSolver.prototype.render = function(){
     this.rows.forEach(function(row){
       printRow = [];
@@ -36,26 +35,35 @@
   };
 
   QueenSolver.prototype.allUnavailable = function(){
-    grossUnavailable = this.allUnavailableDiags().concat(this.unavailableRows()).concat(this.unavailableCols());
-    return CoordinateUniq(grossUnavailable);
+    var grossUnavailable = this.allUnavailableDiags().concat(this.unavailableRows()).concat(this.unavailableCols());
+    return grossUnavailable;
   };
 
   CoordinateUniq = function(cordinates){
-    var result = [];
-    cordinates.forEach(function(coordinate){
-      result.forEach(function(other){
-        if(other[0] !== coordinate[0] || other[1] !== coordinate[1]){
-          result.push(coordinate);
-        }
-      })
-    })
-    return result;
+    return cordinates;
   };
 
   QueenSolver.prototype.available = function(){
-    var diff = this.allCoords.filter(function(coord){
-      return this.allUnavailable().indexOf(coord) < 0
-    }.bind(this));
+    var allcoordstring = this.allCoords.map(function(coord){
+      return coord.join("-");
+    })
+
+    var unavailablesstring = this.allUnavailable().map(function(coord){
+      return coord.join("-");
+    })
+
+    var diff = allcoordstring.filter(function(coord){
+      return unavailablesstring.indexOf(coord) < 0
+    })
+
+    diff = diff.map(function(string){
+      string = string.split("-");
+      string[0] = Number(string[0]);
+      string[1] = Number(string[1]);
+
+      return string;
+    })
+
     return diff;
   };
 
@@ -94,7 +102,7 @@
     for(var rowIdx = 0; rowIdx < this.gridLength; rowIdx++){
       if(this.checkRow(rowIdx)){
         for(var colIdx = 0; colIdx < this.gridLength; colIdx++){
-          unavailableCoords.push(rowIdx, colIdx);
+          unavailableCoords.push([rowIdx, colIdx]);
         }
       }
     }
@@ -115,7 +123,7 @@
     for(var colIdx = 0; colIdx < this.gridLength; colIdx++){
       if(this.checkCol(colIdx)){
         for(var rowIdx = 0; rowIdx < this.gridLength; rowIdx++){
-          unavailableCoords.push(rowIdx, colIdx);
+          unavailableCoords.push([rowIdx, colIdx]);
         }
       }
     }
@@ -162,11 +170,11 @@
       allDiags = allDiags.concat(this.unavailableDiags(coord[0], coord[1]));
     }.bind(this))
 
-    return CoordinateUniq(allDiags);
+    return allDiags;
   };
 
   QueenSolver.prototype.unavailableDiags = function(row, col){
-    var unavailables = this.upRight(row, col).concat(this.downRight(row, col)).concat(this.downLeft(row, col)).concat(this.upLeft(row, col));
+    return this.upRight(row, col).concat(this.downRight(row, col)).concat(this.downLeft(row, col)).concat(this.upLeft(row, col));
   };
 
   QueenSolver.prototype.findAllQueens = function(){
@@ -179,7 +187,7 @@
     return queenCoords;
   };
 
-  var newQueenSolver = new QueenSolver(8, 3);
+  var newQueenSolver = new QueenSolver(8, 8);
   newQueenSolver.placeQueen();
   newQueenSolver.render();
 })();
