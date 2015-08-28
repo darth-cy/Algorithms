@@ -1,4 +1,4 @@
-# Algorithm Study Folder #
+# Algorithms #
 
 ### Dynamic Programming ###
 + KnapSack problem algorithms.
