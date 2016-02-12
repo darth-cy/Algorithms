@@ -13,3 +13,5 @@ Mathematics.pow = function(base, power){
     return last * last * base;
   };
 };
+
+module.exports = Mathematics;
