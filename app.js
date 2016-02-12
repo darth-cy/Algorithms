@@ -1,8 +1,6 @@
-var Mathematics = require('./mathematics/random');
-var Search = require('./search/binarySearch');
+var Mathematics = require('./mathematics/binomial');
 
-console.log(Search.binarySearch([1,2,3,4,5,6,7,8,10], 7));
-console.log(Search.binarySearch([1,2,3,4,5,6,7,8,10], -4));
+console.log(Mathematics.binomialCoefficient(10, 5));
 
 // var count = {};
 // for(var i = 0; i < 10000; i++){
