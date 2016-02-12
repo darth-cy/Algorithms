@@ -9,6 +9,10 @@
 + In-place swap.
 + XOR element finding.
 
+### Mathematics ###
++ Babylonian Square root
++ 
+
 ### Sorting Algorithms ###
 + Quicksort.
 + Mergesort.
