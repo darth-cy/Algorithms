@@ -1,9 +1,9 @@
 var Mathematics = require('./mathematics/random');
+var Search = require('./search/binarySearch');
 
-console.log(Mathematics.isFibonacci(5));
-console.log(Mathematics.isFibonacci(7));
-console.log(Mathematics.isFibonacci(89));
-console.log(Mathematics.isFibonacci(233));
+console.log(Search.binarySearch([1,2,3,4,5,6,7,8,10], 7));
+console.log(Search.binarySearch([1,2,3,4,5,6,7,8,10], -4));
+
 
 // var count = {};
 // for(var i = 0; i < 10000; i++){
