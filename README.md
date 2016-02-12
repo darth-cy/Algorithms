@@ -13,7 +13,10 @@
 + Babylonian Square root
 + Fibonacci
 + Power
-
++ Random Number Generator
+  - random10
+  - randomInRange(int)
+  - randomWeighted(elements, weights)
 
 ### Sorting Algorithms ###
 + Quicksort.

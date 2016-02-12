@@ -25,4 +25,27 @@ Mathematics.randomInRange = function(n){
   };
 };
 
+function cumulatize(arr){
+  for(var i = 1; i< arr.length; i++){
+    arr[i] = arr[i - 1] + arr[i];
+  };
+
+  return arr;
+}
+
+// Random number generator with elements and weights
+Mathematics.randomWeighted = function(elements, weights){
+  var cumulativeCount = cumulatize(weights);
+  var weightSum = cumulativeCount[cumulativeCount.length - 1];
+
+  var cumulative = Math.random();
+  var weight = 1 / weightSum;
+
+  for(var j = 0; j < weightSum; j++){
+    if(cumulativeCount[j] * weight > cumulative){
+      return elements[j];
+    };
+  };
+};
+
 module.exports = Mathematics;
