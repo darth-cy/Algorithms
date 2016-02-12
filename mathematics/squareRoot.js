@@ -14,7 +14,7 @@ Mathematics.squareRoot = function(base, precision, round){
   while(xLast - xNext > precision){
     xLast = xNext;
     xNext = xLast - (xLast * xLast - base)/(2 * xLast);
-  }
+  };
 
   return Math.floor(xNext * Math.pow(10, round)) / Math.pow(10, round); // Rounding
 }
