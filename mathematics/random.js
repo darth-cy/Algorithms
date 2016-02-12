@@ -25,6 +25,8 @@ Mathematics.randomInRange = function(n){
   };
 };
 
+// Cumulatize an arr
+// [1,2,3,4,5] => [1,3,6,10,15]
 function cumulatize(arr){
   for(var i = 1; i< arr.length; i++){
     arr[i] = arr[i - 1] + arr[i];
