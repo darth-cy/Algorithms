@@ -1,6 +1,9 @@
 var Mathematics = require('./mathematics/random');
 
-console.log(Mathematics.scramble([1,2,3,4,5,6,7,8,9,10]));
+console.log(Mathematics.isFibonacci(5));
+console.log(Mathematics.isFibonacci(7));
+console.log(Mathematics.isFibonacci(89));
+console.log(Mathematics.isFibonacci(233));
 
 // var count = {};
 // for(var i = 0; i < 10000; i++){
@@ -13,8 +16,6 @@ console.log(Mathematics.scramble([1,2,3,4,5,6,7,8,9,10]));
 // for(var key in count){
 //   console.log("key: " + key + " have " + count[key] / 10000);
 // };
-
-
 
 // Fibonacci Numbers
 // 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233

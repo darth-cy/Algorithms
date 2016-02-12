@@ -65,4 +65,14 @@ Mathematics.scramble = function(arr){
   return arr;
 };
 
+function isPerfectSquare(num){
+  var root = Math.floor(Math.sqrt(num));
+  return root * root == num;
+};
+
+Mathematics.isFibonacci = function(num){
+  return isPerfectSquare(5 * num * num + 4) ||
+         isPerfectSquare(5 * num * num - 4);
+};
+
 module.exports = Mathematics;
