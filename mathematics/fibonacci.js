@@ -18,6 +18,16 @@ Mathematics.fibonacci = function(n){
   return holder[result % 3];
 };
 
+function isPerfectSquare(num){
+  var root = Math.floor(Math.sqrt(num));
+  return root * root == num;
+};
+
+Mathematics.isFibonacci = function(num){
+  return isPerfectSquare(5 * num * num + 4) ||
+         isPerfectSquare(5 * num * num - 4);
+};
+
 // Mathematics.fibonacci = function(n){
 //   if(n == 1 || n == 0){ return 1; };
 //   return Mathematics.fibonacci(n - 1) + Mathematics.fibonacci(n - 2);

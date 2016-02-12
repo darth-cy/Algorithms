@@ -12,11 +12,14 @@
 ### Mathematics ###
 + Babylonian Square root
 + Fibonacci
+  - fibonacci(n)
+  - isFibonacci(num)
 + Power
 + Random Number Generator
   - random10
   - randomInRange(int)
   - randomWeighted(elements, weights)
+  - scramble(arr)
 
 ### Sorting Algorithms ###
 + Quicksort.

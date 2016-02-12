@@ -4,7 +4,6 @@ var Search = require('./search/binarySearch');
 console.log(Search.binarySearch([1,2,3,4,5,6,7,8,10], 7));
 console.log(Search.binarySearch([1,2,3,4,5,6,7,8,10], -4));
 
-
 // var count = {};
 // for(var i = 0; i < 10000; i++){
 //   var num = Mathematics.randomWeighted(['Aaron', 'Brian', 'Casey', 'Dylan'], [1, 2, 2, 5]);
