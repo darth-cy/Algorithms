@@ -11,7 +11,9 @@
 
 ### Mathematics ###
 + Babylonian Square root
-+ 
++ Fibonacci
++ Power
+
 
 ### Sorting Algorithms ###
 + Quicksort.
