@@ -8,12 +8,11 @@ Search.binarySearch = function(arr, el){
   var mid = Math.floor(arr.length / 2);
   if(arr[mid] == el){
     return mid;
+  }else if(arr[mid] < el){
+    var right = Search.binarySearch(arr.slice(mid + 1), el) + mid;
+    return right >= 0? (right + mid) : -1;
   }else{
-    var left = Search.binarySearch(arr.slice(0, mid), el);
-    if(left >= 0){ return left; };
-
-    var right = Search.binarySearch(arr.slice(mid + 1), el);
-    if(right >= 0){ return right + mid; };
+    return Search.binarySearch(arr.slice(0, mid), el);
   }
 
   return -1;
