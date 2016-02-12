@@ -48,4 +48,19 @@ Mathematics.randomWeighted = function(elements, weights){
   };
 };
 
+Mathematics.scramble = function(arr){
+  var temp;
+  var swapIdx;
+
+  for(var i = arr.length - 1; i > 0; i--){
+    swapIdx = Mathematics.randomInRange(i);
+
+    temp = arr[i];
+    arr[i] = arr[swapIdx];
+    arr[swapIdx] = temp;
+  };
+
+  return arr;
+};
+
 module.exports = Mathematics;
