@@ -1,6 +1,6 @@
-var Mathematics = require('./mathematics/binomial');
+var Sorting = require('./sorting-algorithms/insertionSort');
 
-console.log(Mathematics.binomialCoefficient(10, 5));
+console.log(Sorting.insertionSort([3,5,2,7,5,6,2,5,1]));
 
 // var count = {};
 // for(var i = 0; i < 10000; i++){
