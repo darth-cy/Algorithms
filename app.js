@@ -1,6 +1,7 @@
 var Sorting = require('./sorting-algorithms/insertionSort');
+var Mathematics = require('./mathematics/clock');
 
-console.log(Sorting.insertionSort([3,5,2,7,5,6,2,5,1]));
+console.log(Mathematics.findAngleAtTime("2:30"));
 
 // var count = {};
 // for(var i = 0; i < 10000; i++){
