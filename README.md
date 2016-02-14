@@ -11,6 +11,7 @@
 
 ### Mathematics ###
 + Babylonian Square root
++ Clock
 + Fibonacci
   - fibonacci(n)
   - isFibonacci(num)
