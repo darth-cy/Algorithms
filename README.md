@@ -9,6 +9,10 @@
 + In-place swap.
 + XOR element finding.
 
+### Data Structures ###
++ Heap
++ Tree
+
 ### Mathematics ###
 + Babylonian Square root
 + Clock

@@ -2,7 +2,7 @@ if(typeof DataStructure == 'undefined'){
   DataStructure = {};
 }
 
-let BinaryTreeNode = function(options){
+var BinaryTreeNode = function(options){
   this.value = options.value;
 
   this._parent = options.parent;
@@ -26,7 +26,7 @@ BinaryTreeNode.prototype.isLeaf = function(){
   return !this._leftChild && !this._rightChild;
 }
 
-let BinaryTree = function(options){
+var BinaryTree = function(options){
   this._root = new DataStructure.BinaryTreeNode();
 }
 
