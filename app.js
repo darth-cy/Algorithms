@@ -1,8 +1,8 @@
 var Sorting = require('./sorting-algorithms/heapSort');
 var Mathematics = require('./mathematics/largestContiguousSum');
+var StringUtility = require('./strings/compression');
 
-console.log(Sorting.heapSort([2,62,1,7,40,13,4,63,21,45]));
-console.log(Mathematics.largestContiguousSum([1,5,-9, 10, -112, -55, 5, -8, 6, -3, 17]));
+console.log(StringUtility.compress("ssiuuidooomwwkjj"));
 
 // var count = {};
 // for(var i = 0; i < 10000; i++){

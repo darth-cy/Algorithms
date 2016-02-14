@@ -20,6 +20,7 @@
   - fibonacci(n)
   - isFibonacci(num)
 + Power
++ Largets Contiguous Sum
 + Random Number Generator
   - random10
   - randomInRange(int)
