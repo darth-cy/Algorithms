@@ -1,9 +1,10 @@
 var Sorting = require('./sorting-algorithms/heapSort');
 var Mathematics = require('./mathematics/largestContiguousSum');
 var StringUtility = require('./strings/compression');
+var StringUtility = require('./strings/isPermutation');
 
 console.log(StringUtility.compress("ssiuuidooomwwkjj"));
-
+console.log(StringUtility.isPermutation("abcde", "edasb"));
 // var count = {};
 // for(var i = 0; i < 10000; i++){
 //   var num = Mathematics.randomWeighted(['Aaron', 'Brian', 'Casey', 'Dylan'], [1, 2, 2, 5]);
