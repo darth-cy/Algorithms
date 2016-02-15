@@ -24,6 +24,10 @@ Heap.prototype.inRange = function(idx){
 };
 
 Heap.prototype.valueAt = function(idx){
+  if(typeof this._arr[idx] !== "number"){
+    return this._arr[idx].value();
+  }
+
   return this._arr[idx];
 };
 
