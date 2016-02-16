@@ -1,6 +1,9 @@
 var Selection = require("./selections/quickSelect");
+var Search = require("./search/commonElements");
+
 console.log(Selection.quickSelectMax([10,6,98,24,52,18,14], 5));
 console.log(Selection.quickSelectMin([10,6,98,24,52,18,14], 5));
+console.log(Search.threeCommon([1,5,7,3,4,1], [1,1,7,9,0,5,2], [1,1,4,7,5]))
 
 
 // var Graph = require('./data-structures/graph').Graph;
