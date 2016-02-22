@@ -1,3 +1,4 @@
-var Search = require('./search/crossOverSearch');
+var Search = require('./search/isSubsequence');
 
-console.log(Search.crossOverSearch([1,2,3,4,5,6,7,8,9,10], 0, 9, 6));
+console.log(Search.isSubsequence("adifpoei", "kkkkaddkkakjsjidfhfpgsfoesi"));
+console.log(Search.isSubsequence("adifpoei", "kkkkaddoesi"));
