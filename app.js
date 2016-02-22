@@ -1,29 +1,7 @@
-var Schedule = require("./greedy/gridScheduling");
+var closestSum = require("./mathematics/closestSum").closestSum;
 
-console.log(Schedule.schedule([
-  {
-    id: "Meeting with CEO",
-    gridSize: 2,
-    profit: 100
-  },{
-    id: "Complete the website",
-    gridSize: 3,
-    profit: 90
-  },{
-    id: "Have fun with colleagues",
-    gridSize: 1,
-    profit: 10
-  },{
-    id: "Go Rock climbing",
-    gridSize: 1,
-    profit: 30
-  },{
-    id: "Press Conference",
-    gridSize: 1,
-    profit: 120
-  },{
-    id: "Help supervisor",
-    gridSize: 2,
-    profit: 50
-  }
-], 9));
+var left = [1,53, 167, 229, 340, 890, 1000];
+var right = [32, 56, 211, 394, 569, 710, 888];
+console.log(left);
+console.log(right);
+console.log(closestSum(left, right, 522));
