@@ -1,31 +1,29 @@
-var Selection = require("./selections/quickSelect");
-var Search = require("./search/commonElements");
-var StringUtility = require("./strings/isAnagram");
+var Schedule = require("./greedy/gridScheduling");
 
-console.log(StringUtility.isAnagram("UBUI", "IUBU"));
-console.log(StringUtility.isAnagram("abuk", "abok"));
-
-// var Graph = require('./data-structures/graph').Graph;
-//
-// var graph = new Graph();
-//
-// graph.addVertice("V1", 7);
-// graph.addVertice("V2", 5);
-// graph.addVertice("V3", 15);
-// graph.addVertice("V4", 9);
-// graph.addVertice("V5", 3);
-// graph.addVertice("V6", 2);
-// graph.addVertice("V7", 4);
-// graph.addVertice("V8", 8);
-//
-// graph.addEdge("V1", "V2", 2);
-// graph.addEdge("V1", "V3", 6);
-// graph.addEdge("V2", "V3", 3);
-// graph.addEdge("V2", "V5", 6);
-// graph.addEdge("V3", "V6", 3);
-// graph.addEdge("V4", "V1", 7);
-// graph.addEdge("V4", "V7", 4);
-// graph.addEdge("V6", "V8", 2);
-// graph.addEdge("V7", "V6", 1);
-//
-// console.log(graph.dfs("V2", 12));
+console.log(Schedule.schedule([
+  {
+    id: "Meeting with CEO",
+    gridSize: 2,
+    profit: 100
+  },{
+    id: "Complete the website",
+    gridSize: 3,
+    profit: 90
+  },{
+    id: "Have fun with colleagues",
+    gridSize: 1,
+    profit: 10
+  },{
+    id: "Go Rock climbing",
+    gridSize: 1,
+    profit: 30
+  },{
+    id: "Press Conference",
+    gridSize: 1,
+    profit: 120
+  },{
+    id: "Help supervisor",
+    gridSize: 2,
+    profit: 50
+  }
+], 9));
