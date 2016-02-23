@@ -1,4 +1,3 @@
-var Search = require('./search/isSubsequence');
+var Dynamic = require('./dynamic-programming/coinChange');
 
-console.log(Search.isSubsequence("adifpoei", "kkkkaddkkakjsjidfhfpgsfoesi"));
-console.log(Search.isSubsequence("adifpoei", "kkkkaddoesi"));
+console.log(Dynamic.coinChange(21, [5, 5, 7]));
