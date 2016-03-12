@@ -1,3 +1,3 @@
-var Dynamic = require('./dynamic-programming/coinChange');
+var Search = require('./search/longestCommonSubsequence');
 
-console.log(Dynamic.coinChange(21, [5, 5, 7]));
+console.log(Search.longestCommonSubsequence([1,5,8,10,88,23,9,10], [88,23,9]));
