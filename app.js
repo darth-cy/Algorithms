@@ -1,3 +1,3 @@
-var Search = require('./search/longestCommonSubsequence');
+var Dynamic = require('./dynamic-programming/frogCrossing');
 
-console.log(Search.longestCommonSubsequence([1,5,8,10,88,23,9,10], [88,23,9]));
+console.log(Dynamic.frogCrossing(10, [1, 2, 4]));
