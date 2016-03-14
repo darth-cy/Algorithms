@@ -3,6 +3,7 @@ if(typeof Search == 'undefined'){
 }
 
 Search.crossOverSearch = function(arr, low, high, target){
+  // Base case two ends
   if(arr[high] <= target){
     return high;
   }else if(arr[low] > target){
