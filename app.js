@@ -1,4 +1,6 @@
 var Other = require("./other/trailingZero.js");
 
 
-console.log(Other.pascalTriangle(5));
+console.log(Other.validParenthesis("()()()"));
+console.log(Other.validParenthesis("()[]{}"));
+console.log(Other.validParenthesis("(](}"));

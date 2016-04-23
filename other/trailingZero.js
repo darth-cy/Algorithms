@@ -30,6 +30,31 @@ var pascalTriangle = function(n){
   return result;
 }
 
+var validParenthesis = function(str){
+  relation = {
+    "(": ")",
+    "[": "]",
+    "{": "}"
+  };
+
+  var strStack = [];
+  var strArr = str.split("");
+
+  for(var i = 0; i < strArr.length; i++){
+    var char = strArr[i];
+    if(relation[char]){
+      strStack.push(char);
+    }else{
+      if(relation[strStack[strStack.length - 1]] == char){
+        strStack.pop();
+      }
+    }
+  }
+
+  return strStack.length < 1;
+}
+
 Other.factorialTrailingZero = factorialTrailingZero;
 Other.pascalTriangle = pascalTriangle;
+Other.validParenthesis = validParenthesis;
 module.exports = Other;
