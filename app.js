@@ -14,11 +14,6 @@ linkedList.append(node2);
 linkedList.append(node3);
 linkedList.append(node4);
 linkedList.append(node5);
-console.log(linkedList.length);
+
 
 linkedList.print();
-
-linkedList.reverse();
-linkedList.print();
-
-console.log(linkedList.isPalindrome());

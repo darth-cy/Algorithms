@@ -11,6 +11,10 @@ LinkedListNode.prototype.toString = function(){
   return "{ value: " + this.val + "; next: " + (this.next? "[node]": "NULL") + "}";
 }
 
+LinkedListNode.prototype.isLast = function(){
+  return !!this.next;
+}
+
 var LinkedList = function(options){
   this.length = 0;
 
@@ -83,6 +87,27 @@ LinkedList.prototype.sharePrefix = function(otherLinkedList){
 
 LinkedList.prototype.isPalindrome = function(){
   return this.sharePrefix(this.subLinkedList(this.length/2).reverse());
+}
+
+LinkedList.prototype.removeFromLast = function(idx){
+  var target = this.head;
+  var ahead = this.head;
+
+  while(idx > 0){
+    ahead = ahead.next;
+  }
+
+  var pre;
+  while(!ahead.isLast){
+    pre = target;
+    target = target.next;
+    ahead = ahead.next;
+  }
+
+  pre.next = target.next;
+  target.next = null;
+
+  return 0;
 }
 
 LinkedList.prototype.print = function(){
