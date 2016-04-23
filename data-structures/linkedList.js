@@ -12,7 +12,7 @@ LinkedListNode.prototype.toString = function(){
 }
 
 LinkedListNode.prototype.isLast = function(){
-  return !!this.next;
+  return !(!!this.next);
 }
 
 var LinkedList = function(options){
@@ -95,10 +95,11 @@ LinkedList.prototype.removeFromLast = function(idx){
 
   while(idx > 0){
     ahead = ahead.next;
+    idx -= 1;
   }
 
-  var pre;
-  while(!ahead.isLast){
+  var pre = this.head;
+  while(!ahead.isLast()){
     pre = target;
     target = target.next;
     ahead = ahead.next;
@@ -106,6 +107,32 @@ LinkedList.prototype.removeFromLast = function(idx){
 
   pre.next = target.next;
   target.next = null;
+  this.length -= 1;
+
+  return 0;
+}
+
+LinkedList.prototype.removeAtIndex = function(idx){
+  if(Math.abs(idx) >= this.length){
+    throw "Index specified exceeds the length";
+  }
+
+  if(idx < 0){
+    this.removeFromLast(Math.abs(idx));
+  }else{
+    var target = this.head;
+    var pre = this.head;
+
+    while(idx > 0){
+      pre = target;
+      target = target.next;
+      idx -= 1;
+    }
+
+    pre.next = target.next;
+    target.next = null;
+    this.length -= 1;
+  }
 
   return 0;
 }
