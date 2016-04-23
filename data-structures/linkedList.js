@@ -12,14 +12,20 @@ LinkedListNode.prototype.toString = function(){
 }
 
 var LinkedList = function(options){
-  this.head = options.head;
+  this.length = 0;
 
-  // Find last
-  var node = this.head;
-  while(node.next){
-    node = node.next;
+  this.head = options.head;
+  if(this.head){
+    this.length += 1;
+
+    // Find last
+    var node = this.head;
+    while(node.next){
+      this.length += 1;
+      node = node.next;
+    }
+    this.last = node;
   }
-  this.last = node;
 }
 
 LinkedList.prototype.reverse = function(){
@@ -43,8 +49,40 @@ LinkedList.prototype.reverse = function(){
 }
 
 LinkedList.prototype.append = function(newNode){
+  if(!newNode){ throw "New node cannot be NULL"; }
   this.last.next = newNode;
   this.last = newNode;
+  this.length += 1;
+}
+
+LinkedList.prototype.subLinkedList = function(idx){
+  var subHead = this.head;
+  while(idx > 0){
+    subHead = subHead.next;
+    if(!subHead){ throw "Index exceeds total length."; }
+    idx -= 1;
+  }
+
+  return new LinkedList({ head: subHead });
+}
+
+LinkedList.prototype.sharePrefix = function(otherLinkedList){
+  var pointer1 = this.head;
+  var pointer2 = otherLinkedList.head;
+
+  while(pointer1 && pointer2){
+    if(pointer1.val != pointer2.val){
+      return false;
+    }
+    pointer1 = pointer1.next;
+    pointer2 = pointer2.next;
+  }
+
+  return true;
+}
+
+LinkedList.prototype.isPalindrome = function(){
+  return this.sharePrefix(this.subLinkedList(this.length/2).reverse());
 }
 
 LinkedList.prototype.print = function(){
