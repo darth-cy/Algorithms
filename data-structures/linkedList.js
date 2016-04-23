@@ -137,6 +137,28 @@ LinkedList.prototype.removeAtIndex = function(idx){
   return 0;
 }
 
+LinkedList.prototype.removeElement = function(val){
+  while(this.head && this.head.val == val){
+    this.head = this.head.next;
+    this.length -= 1;
+  }
+
+  var target = this.head;
+  var pre;
+  
+  while(target.next){
+    pre = target;
+    target = target.next;
+    if(target.val == val){
+      pre.next = target.next;
+      this.length -= 1;
+      target.next = null;
+    }
+  }
+
+  return 0;
+}
+
 LinkedList.prototype.print = function(){
   var node = this.head;
   var result = "";

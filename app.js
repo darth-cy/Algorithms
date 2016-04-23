@@ -15,9 +15,7 @@ linkedList.append(node3);
 linkedList.append(node4);
 linkedList.append(node5);
 
-
 linkedList.print();
-linkedList.removeAtIndex(-1);
+linkedList.removeElement("a");
 linkedList.print();
-linkedList.removeAtIndex(2);
-linkedList.print();
+console.log(linkedList.length);
