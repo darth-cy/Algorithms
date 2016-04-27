@@ -27,7 +27,34 @@ BinaryTreeNode.prototype.isLeaf = function(){
 }
 
 var BinaryTree = function(options){
-  this._root = new DataStructure.BinaryTreeNode();
+  this._root = options.root;
+}
+
+BinaryTree.prototype.inOrder = function(){
+  var nodeStack = [];
+  var root = this._root;
+  var results = [];
+
+  while(root){
+    nodeStack.push(root);
+    root = root._leftChild;
+  }
+
+  while(nodeStack.length > 0){
+    var root = nodeStack.pop();
+    results.push(root.value);
+
+    while(root && root._rightChild){
+      root = root._rightChild;
+
+      while(root){
+        nodeStack.push(root);
+        root = root._leftChild;
+      }
+    }
+  }
+
+  return results;
 }
 
 DataStructure.BinaryTree = BinaryTree;
